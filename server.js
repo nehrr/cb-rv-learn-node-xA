@@ -29,7 +29,7 @@ const server = http.createServer((request, response) => {
       content = data.toString();
     })
     .on('end', () => {
-      response.setHeader('Set-Cookie', `sessionID=${cookie};expires=` + new Date(new Date().getTime()+60000).toGMTString())
+      response.setHeader('Set-Cookie', `sessionID=${cookie};expires=` + new Date(new Date().getTime()+60000).toGMTString());
       fs.writeFile(path.join(__dirname, '.sessions', `${cookie}`), `${content}`, (err) => {
         if (err) {
           throw err;
