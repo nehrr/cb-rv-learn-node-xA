@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CodingBad | Node/xA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" />
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+  </head>
+  <body>
+    <section class="hero is-fullheight is-info">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h3 id="title" class="title is-2">
+            HELLO, WORLD
+          </h3>
+          <h4 class="subtitle is-4">Let's hack Node.js for fun and profit.</h4>
+          <a id="link" href="./signin.html">SignIn</a>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        var req = new XMLHttpRequest();
+        req.open('GET', document.location, false);
+        req.send(null);
+        var userInfos = JSON.parse(req.getResponseHeader("x-my-user-data"));
+
+        document.getElementById("title").innerHTML = `Hi, I'm ${userInfos.fullname} and I'm ${userInfos.age}`;
+        document.getElementById("link").innerHTML = `SignIn or e-mail me here: ${userInfos.email}`;
+      });
+    </script>
+  </body>
+</html>
